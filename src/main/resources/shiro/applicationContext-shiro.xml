@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 配置 ShiroFilter bean-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/loginPage"/>
+        <property name="successUrl" value="/"/>
+        <property name="unauthorizedUrl" value="loginPage"/>
+        <!-- shiro过滤器的具体配置 -->
+        <!-- anon-匿名访问，authc-需要认证 -->
+        <property name="filterChainDefinitions">
+            <value>
+                / = anon
+                /login = anon
+                /admin = anon
+                /index = anon
+                /logout = logout
+                /home = anon
+                /loginPage = anon
+                /registered = anon
+                /getArticleById = anon
+                /userRegister = anon
+                /js/** = anon
+                /css/** = anon
+                /getArticleByTitle = anon
+                /getArticleByCategory = anon
+                /setComment =anon
+                /userIcon = anon
+                /messageBoard = anon
+                /userInfo =anon
+                /img/** = anon
+                /setMessage = anon
+                /fileType = anon
+                /getUptoken = anon
+                /filediscern = anon
+                /** = authc
+            </value>
+        </property>
+    </bean>
+    <!-- 配置 Shiro 的 SecurityManager Bean. -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+    </bean>
+    <!-- 配置 Bean 后置处理器: 会自动的调用和 Spring 整合后各个组件的生命周期方法. -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <bean id="myRealm" class="top.wanda92632.blog.shiro.MyRealm">
+    </bean>
+    <!--登出处理-->
+    <bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+        <property name="redirectUrl" value="/index"/>
+    </bean>
+</beans>

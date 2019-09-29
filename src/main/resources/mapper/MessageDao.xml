@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.wanda92632.blog.dao.MessageDao">
+<!--提交留言-->
+    <insert id="serMessage" useGeneratedKeys="true" keyProperty="message.id">
+        INSERT INTO message(id,nickname, content)
+        VALUE (#{message.id},#{message.nickname},#{message.content})
+    </insert>
+
+    <select id="getAllMessage" resultType="top.wanda92632.blog.entity.Message">
+        select *
+        FROM message;
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="2641" started-at="2019-09-01T11:57:45Z" finished-at="2019-09-01T11:57:48Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="2641" started-at="2019-09-01T11:57:45Z" finished-at="2019-09-01T11:57:48Z">
+      <class name="top.wanda92632.blog.dao.TestArticle">
+        <test-method status="PASS" signature="getAllArticleByUserID()[pri:0, instance:getAllArticleByUserID(top.wanda92632.blog.dao.TestArticle)]" name="getAllArticleByUserID" duration-ms="609" started-at="2019-09-01T19:57:47Z" finished-at="2019-09-01T19:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllArticleByUserID -->
+      </class> <!-- top.wanda92632.blog.dao.TestArticle -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
